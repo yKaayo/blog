@@ -6,6 +6,7 @@ export type Post = {
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
+  cover: Cover;
   slug: string;
 };
 
@@ -17,6 +18,45 @@ export type ContentBlock = {
 export type ContentChild = {
   text: string;
   type: string;
+};
+
+export type Cover = {
+  id: number;
+  documentId: string;
+  name: string;
+  alternativeText: string | null;
+  caption: string | null;
+  width: number;
+  height: number;
+  formats: {
+    small?: ImageFormat;
+    medium?: ImageFormat;
+    thumbnail?: ImageFormat;
+  };
+  hash: string;
+  ext: string;
+  mime: string;
+  size: number;
+  url: string;
+  previewUrl: string | null;
+  provider: string;
+  provider_metadata: any | null;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+};
+
+export type ImageFormat = {
+  ext: string;
+  url: string;
+  hash: string;
+  mime: string;
+  name: string;
+  path: string | null;
+  size: number;
+  width: number;
+  height: number;
+  sizeInBytes: number;
 };
 
 export type Pagination = {
@@ -31,4 +71,4 @@ export type PostData = {
   meta: {
     pagination: Pagination;
   };
-}
+};
